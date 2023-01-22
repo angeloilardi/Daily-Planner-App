@@ -3,10 +3,10 @@ let currentDay = moment().format("dddd, MMMM Do YYYY");
 $("#currentDay").text(currentDay);
 
 // set the start time for the calendar
-let startTime = moment('7am', 'hA');
+let startTime = moment('9am', 'hA');
 
 // set the finish time for the calendar
-let finishTime = moment('7pm', 'hA');
+let finishTime = moment('5pm', 'hA');
 
 // function that creates the time blocks
 function createTimeBlocks() {
@@ -86,10 +86,8 @@ function displaySavedEvents() {
         let listToDisplay = JSON.parse(localStorage.getItem("updatedEventList"));
         if (listToDisplay !== null) {
             let existingIndex = listToDisplay.findIndex(e => e.eventDate === timeBlock);
-            console.log(existingIndex);
             if (existingIndex !== -1) {
                 $(this).text(listToDisplay[existingIndex].eventActivity);
-                console.log($(this).val());
             } else $(this).val("");
         }
     })
